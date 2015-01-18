@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TipViewController">
+            <connections>
+                <outlet property="TipAmountText" destination="Zbm-xI-2VD" id="lKB-nI-c4V"/>
+                <outlet property="TotalAmountText" destination="TXR-kA-tDu" id="ZMl-5s-Yqx"/>
+                <outlet property="TotalSplitText" destination="LJL-9u-jWa" id="YCj-MO-608"/>
+                <outlet property="billTextField" destination="EQh-Ar-Fns" id="1EB-pN-bFp"/>
+                <outlet property="currencyLabel" destination="sHv-r8-8Ix" id="dhz-r8-NIg"/>
+                <outlet property="scrollView" destination="1Jh-J7-Bw7" id="RIX-LT-Qw8"/>
+                <outlet property="splitSlider" destination="FJB-lm-hz5" id="NZH-vS-4MX"/>
+                <outlet property="splitTextLabel" destination="eIT-am-Mxx" id="TXe-sY-7Qn"/>
+                <outlet property="splitValueLabel" destination="0Xk-s5-yFI" id="wec-Ou-rQU"/>
+                <outlet property="tipImage" destination="AnD-Au-obS" id="VSG-hX-6wj"/>
+                <outlet property="tipPercentLabel" destination="mKC-eC-0Uc" id="3xa-zR-PYm"/>
+                <outlet property="tipSlider" destination="Nsa-xJ-9OW" id="S2K-hV-4F5"/>
+                <outlet property="tipTextLabel" destination="YXZ-7H-RbE" id="zjM-eI-m14"/>
+                <outlet property="totalImage" destination="WhX-gO-W1Z" id="I6G-XD-3W4"/>
+                <outlet property="totalSplitImage" destination="yi5-3h-xZG" id="9kw-hR-1hg"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Jh-J7-Bw7">
+                    <rect key="frame" x="8" y="35" width="400" height="572"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Xk-s5-yFI">
+                            <rect key="frame" x="305" y="254" width="32" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="15" translatesAutoresizingMaskIntoConstraints="NO" id="FJB-lm-hz5">
+                            <rect key="frame" x="118" y="250" width="181" height="31"/>
+                            <connections>
+                                <action selector="splitSliderValueChanged:" destination="-1" eventType="valueChanged" id="pm2-n7-F2Y"/>
+                            </connections>
+                        </slider>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tip%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXZ-7H-RbE">
+                            <rect key="frame" x="66" y="214" width="46" height="23"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <color key="textColor" red="0.082724712611829482" green="0.47091487461680509" blue="0.86884093915343918" alpha="1" colorSpace="calibratedRGB"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Split" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIT-am-Mxx">
+                            <rect key="frame" x="66" y="254" width="41" height="21"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <color key="textColor" red="0.082724712611829482" green="0.47091487461680509" blue="0.86884093915343918" alpha="1" colorSpace="calibratedRGB"/>
+                        </label>
+                        <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="Nsa-xJ-9OW">
+                            <rect key="frame" x="118" y="212" width="181" height="31"/>
+                            <connections>
+                                <action selector="tipSliderValueChanged:" destination="-1" eventType="valueChanged" id="xs3-Ln-5Bh"/>
+                            </connections>
+                        </slider>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHv-r8-8Ix">
+                            <rect key="frame" x="120" y="152" width="42" height="37"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                            <color key="textColor" red="0.082724712611829482" green="0.47091487461680509" blue="0.86884093915343918" alpha="1" colorSpace="calibratedRGB"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKC-eC-0Uc">
+                            <rect key="frame" x="305" y="214" width="32" height="25"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tipimage.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="AnD-Au-obS">
+                            <rect key="frame" x="51" y="322" width="50" height="46"/>
+                            <color key="backgroundColor" red="0.55686277149999996" green="0.84313732389999996" blue="0.92941182850000004" alpha="1" colorSpace="deviceRGB"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$3.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbm-xI-2VD">
+                            <rect key="frame" x="154" y="338" width="162" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" red="0.082724712611829482" green="0.47091487461680509" blue="0.86884093915343918" alpha="1" colorSpace="calibratedRGB"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="moneybagg.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="WhX-gO-W1Z">
+                            <rect key="frame" x="30" y="376" width="93" height="93"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="moneybags.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="yi5-3h-xZG">
+                            <rect key="frame" x="30" y="469" width="93" height="79"/>
+                        </imageView>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" text="$3.00" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TXR-kA-tDu">
+                            <rect key="frame" x="131" y="404" width="185" height="45"/>
+                            <color key="textColor" red="0.082724712610000001" green="0.47091487459999998" blue="0.86884093920000005" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$0.00" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LJL-9u-jWa">
+                            <rect key="frame" x="161" y="498" width="155" height="30"/>
+                            <color key="textColor" red="0.082724712610000001" green="0.47091487459999998" blue="0.86884093920000005" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EQh-Ar-Fns">
+                            <rect key="frame" x="161" y="157" width="97" height="30"/>
+                            <color key="textColor" red="0.082724712610000001" green="0.47091487459999998" blue="0.86884093920000005" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            <connections>
+                                <action selector="amountTextFieldChanged:" destination="-1" eventType="editingChanged" id="tDs-iB-WMt"/>
+                            </connections>
+                        </textField>
+                    </subviews>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="97B-Pg-fxk" appends="YES" id="GwS-V7-GOK"/>
+            </connections>
+            <point key="canvasLocation" x="149" y="300"/>
+        </view>
+        <tapGestureRecognizer id="97B-Pg-fxk">
+            <connections>
+                <action selector="onTap:" destination="-1" id="wtt-Rq-iGN"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="moneybagg.jpeg" width="225" height="225"/>
+        <image name="moneybags.jpeg" width="246" height="205"/>
+        <image name="tipimage.jpeg" width="184" height="274"/>
+    </resources>
+</document>
