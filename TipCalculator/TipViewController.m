@@ -8,7 +8,6 @@
 
 #import "TipViewController.h"
 #import "SettingsViewController.h"
-#import "UIView+Animation.h"
 
 @interface TipViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *billTextField;
@@ -70,8 +69,9 @@
     
     NSDate *billTimerStart = (NSDate*)[_defaults objectForKey:@"bill_timer"];
     NSDate *timerPlus5mins = [billTimerStart dateByAddingTimeInterval:300];
+    NSDate *now = [[NSDate alloc]init];
     
-    if(billTimerStart <= timerPlus5mins ){
+    if([now compare: timerPlus5mins] == NSOrderedAscending){
         float bill = [_defaults floatForKey:@"old_bill"];
         if ( bill>0) {
             _billTextField.text = [NSString stringWithFormat:@"%0.2f",bill];
@@ -85,15 +85,23 @@
     NSDate *date = [[NSDate alloc] init];
 
     [_defaults setObject:date forKey:@"bill_timer"];
+    NSLog(@"%0.2f", [_billTextField.text floatValue]);
     [_defaults setFloat:[_billTextField.text floatValue] forKey:@"old_bill"];
-    NSMutableArray *array = [[NSMutableArray alloc] initWithObjects:@"", @"", @"", nil];
-    
+    NSMutableArray *array = [_defaults objectForKey:@"table_data"];
+    if (array == nil) {
+        array =  [[NSMutableArray alloc] initWithObjects:@"", nil];
+    }
+
     if (_billTextField.text.length > 0) {
-        array = [_defaults objectForKey:@"table_data"];
-        [array insertObject:[array objectAtIndex:1] atIndex:2];
-        [array insertObject:[array objectAtIndex:0] atIndex:1];
-        [array insertObject:[NSString stringWithFormat:@"%@      %@",date, _TotalAmountText.text ] atIndex:0];
-        [_defaults setObject:array forKey:@"table_data"];
+        NSMutableArray *tempArray = [[NSMutableArray alloc] initWithObjects:@"", nil];
+        for (int i=0,j=0; i<array.count && i<=2; i++) {
+            if (![[array objectAtIndex:i] isEqual: @""]) {
+                [tempArray insertObject:[array objectAtIndex:i] atIndex:j];
+                j++;
+            }
+        }
+        [tempArray insertObject:[NSString stringWithFormat:@"%@      %@",date, _TotalAmountText.text ] atIndex:0];
+        [_defaults setObject:tempArray forKey:@"table_data"];
     }
     
 }
@@ -118,6 +126,7 @@
 - (void) updateSliders {
     int defaultTipPercent = (int)[_defaults integerForKey:@"default_tip"];
     int defaultSplit = (int)[_defaults integerForKey:@"default_split"];
+    defaultSplit = defaultSplit==0?1:defaultSplit;
     
     _tipPercentLabel.text = [NSString stringWithFormat:@"%d", defaultTipPercent];
     _splitValueLabel.text = [NSString stringWithFormat:@"%d", defaultSplit];
@@ -148,6 +157,17 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self registerKeyboardNotification];
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    [self deregisterKeyboardNotification];
+    [self storeBillAmount];
+    [super viewWillDisappear:animated];
+}
+
 - (IBAction)onTap:(id)sender {
     [self.view endEditing:YES];
     if (_billTextField.text.length==0) {
@@ -158,17 +178,6 @@
     }
 }
 
-- (void) viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self registerKeyboardNotification];
- }
- 
-- (void) viewWillDisappear:(BOOL)animated {
-    [self deregisterKeyboardNotification];
-    [self storeBillAmount];
-    [super viewWillDisappear:animated];
- }
- 
 - (void) registerKeyboardNotification {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];

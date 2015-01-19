@@ -73,6 +73,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     cell.textLabel.text = [_tabledata objectAtIndex:indexPath.row];
+    cell.textLabel.textColor = [UIColor blueColor];
+    
     return cell;
 }
 
