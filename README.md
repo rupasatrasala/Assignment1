@@ -15,4 +15,4 @@ Optional: Add local currency and local currency thousand separator
 
 Walkthrough of all user stories:
 
-![tipper1](https://cloud.githubusercontent.com/assets/7398118/5795534/9cf38f82-9f46-11e4-97bf-8dbb5acb5c18.gif)
+![tipper3](https://cloud.githubusercontent.com/assets/7398118/5797463/41434faa-9f6f-11e4-8054-722156dfb9e9.gif)
