@@ -14,4 +14,5 @@ Optional: Remember the bill amount for a minute across app restarts
 Optional: Add local currency and local currency thousand separator
 
 Walkthrough of all user stories:
+
 ![tipper1](https://cloud.githubusercontent.com/assets/7398118/5795534/9cf38f82-9f46-11e4-97bf-8dbb5acb5c18.gif)
