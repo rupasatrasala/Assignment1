@@ -10,7 +10,7 @@ Optional: Modified UI style - 1. to show the images and text boxes on UI only wh
 Optional: Added slider to enter tip percentage 
 Optional: Added an option to split the amount among multiple people and updated settings page to include default split number
 Optional: Updated settings page to show the history of calculation. The calculation is stored everytime the view disappears
-Optional: Remember the bill amount for a minute across app restarts
+Optional: Remember the bill amount for 5 minutes across app restarts
 Optional: Add local currency and local currency thousand separator
 
 Walkthrough of all user stories:
